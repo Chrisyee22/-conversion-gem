@@ -1,36 +1,62 @@
-def calculation_type
-  puts "Type 1 for cm to inches, 2 for inches to cm, 3 for meters to feet, or 4 for feet to meters"
-  conversion_type = gets.to_i
+class ConvertInches
 
-  if conversion_type == 1
-    "cm to in"
-  elsif conversion_type == 2
-    "in to cm"
-  elsif converion_type == 3
-    "m to ft"
-  elsif conversion_type == 4
-    "ft to m"
-  else
-    "Value not available. Please select a viable option"
+  def self.to_feet(value)
+    if value.is_a? Integer
+      value / 12
+    else
+      return "Please enter a numerical value"
+    end
+  end
+
+  def self.to_miles(value)
+    return value / 63360
+  end
+
+  def self.to_yards(value)
+    return value / 36
+  end
+
+  def self.to_metric(value, which_metric="m")
+     meters = value / 39.37
+
+    case which_metric
+    when "cm"
+      return meters * 100
+    when "km"
+      return meters / 1000
+    when "mm"
+      return meters * 1000
+    when "m"
+      return meters
+    end
   end
 end
 
+class ConvertFeet
+  def self.to_inches(value)
+    return value * 12
+  end
 
-def calculation(convert, value)
+  def self.to_miles(value)
+    return value * 0.000189394
+  end
 
-  if convert == "cm to in"
-    return result = value / 2.54
-    
-  elsif convert == "in to cm"
-    return result = value * 2.54
+  def self.to_yards(value)
+    return value * 0.3333
+  end
 
-  elsif convert == "m to ft"
-    return result = value * 3.28
+  def self.to_metric(value, which_metric="m")
+     meters = value * 0.3048
 
-  elsif convert == "ft to m"
-    return result == value / 3.28
-
-  else
-    return "Oops look like that was an error. Please enter another value"
+    case which_metric
+    when "cm"
+      return meters / 100
+    when "km"
+      return meters * 1000
+    when "mm"
+      return meters / 1000
+    when "m"
+      return meters
+    end
   end
 end
