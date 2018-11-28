@@ -4,7 +4,7 @@ require_relative "../lib/conversion_gem"
 RSpec.describe ConvertInches do
     describe "to_feet" do
       it "return message if value is nil" do
-        expect(ConvertInches.to_feet("")).to eql("Please enter a numerical value")
+        expect { ConvertInches.to_feet }.to raise_error(ArgumentError)
       end
       it "returns value in feet with adjusted decimal value" do
         expect(ConvertInches.to_feet(7,6)).to eql(0.583333)
@@ -19,7 +19,7 @@ RSpec.describe ConvertInches do
 
     describe "to_miles" do
       it "return message if value is nil" do
-        expect(ConvertInches.to_miles("")).to eql("Please enter a numerical value")
+        expect { ConvertInches.to_miles }.to raise_error(ArgumentError)
       end
       it "returns value in miles with adjusted decimal value" do
         expect(ConvertInches.to_miles(99,7)).to eql(0.0015625)
@@ -34,7 +34,7 @@ RSpec.describe ConvertInches do
 
     describe "to_yards" do
       it "return message if value is nil" do
-        expect(ConvertInches.to_yards("")).to eql("Please enter a numerical value")
+        expect { ConvertInches.to_yards }.to raise_error(ArgumentError)
       end
       it "returns value in yards with adjusted decimal value" do
         expect(ConvertInches.to_yards(235,1)).to eql(6.5)
@@ -49,7 +49,7 @@ RSpec.describe ConvertInches do
 
     describe "to_metric" do
       it "return message if value is nil" do
-        expect(ConvertInches.to_metric("")).to eql("Please enter a numerical value")
+        expect {ConvertInches.to_metric }.to raise_error(ArgumentError)
       end
       it "returns value in meters" do
         expect(ConvertInches.to_metric(39.37)).to eql(1.0)
@@ -69,7 +69,7 @@ end
 RSpec.describe ConvertFeet do
     describe "to_inches" do
       it "return message if value is nil" do
-        expect(ConvertFeet.to_inches("")).to eql("Please enter a numerical value")
+        expect { ConvertFeet.to_inches }.to raise_error(ArgumentError)
       end
         it "returns value in inches" do
           expect(ConvertFeet.to_inches(3.6)).to eql(43.2)
@@ -81,7 +81,7 @@ RSpec.describe ConvertFeet do
 
       describe "to_miles" do
         it "return message if value is nil" do
-          expect(ConvertFeet.to_miles("")).to eql("Please enter a numerical value")
+          expect {ConvertFeet.to_miles }.to raise_error(ArgumentError)
         end
         it "return value in miles" do
           expect(ConvertFeet.to_miles(1)).to eql(0.0002)
@@ -92,7 +92,7 @@ RSpec.describe ConvertFeet do
       end
       describe "to_yards" do
         it "return message if value is nil" do
-          expect(ConvertFeet.to_yards("")).to eql("Please enter a numerical value")
+          expect { ConvertFeet.to_yards }.to raise_error(ArgumentError)
         end
         it "returns value in yards" do
           expect(ConvertFeet.to_yards(5.23)).to eql(1.7432)
@@ -107,7 +107,7 @@ RSpec.describe ConvertFeet do
 
       describe "to_metric" do
         it "return message if value is nil" do
-          expect(ConvertFeet.to_metric("")).to eql("Please enter a numerical value")
+          expect { ConvertFeet.to_metric }.to raise_error(ArgumentError)
         end
         it "returns value in meters" do
           expect(ConvertFeet.to_metric(8.437)).to eql(2.5716)
@@ -127,7 +127,7 @@ end
 RSpec.describe ConvertYards do
   describe "to_inches" do
     it "return message if value is nil" do
-      expect(ConvertYards.to_inches("")).to eql("Please enter a numerical value")
+      expect { ConvertYards.to_inches }.to raise_error(ArgumentError)
     end
     it "return negative if value is negative" do
       expect(ConvertYards.to_inches(-1)).to eql(-36.0)
@@ -141,7 +141,7 @@ RSpec.describe ConvertYards do
   end
   describe "to_miles" do
     it "return message if value is nil" do
-      expect(ConvertYards.to_miles("")).to eql("Please enter a numerical value")
+      expect { ConvertYards.to_miles }.to raise_error(ArgumentError)
     end
     it "return value in miles" do
       expect(ConvertYards.to_miles(317)).to eql(0.1801)
@@ -155,7 +155,7 @@ RSpec.describe ConvertYards do
   end
   describe "to_feet" do
     it "return message if value is nil" do
-      expect(ConvertYards.to_feet("")).to eql("Please enter a numerical value")
+      expect { ConvertYards.to_feet }.to raise_error(ArgumentError)
     end
     it "return negative if value is negative" do
       expect(ConvertYards.to_feet(-4)).to eql(-12.0)
@@ -170,7 +170,7 @@ RSpec.describe ConvertYards do
 
   describe "to_metric" do
     it "return message if value is nil" do
-      expect(ConvertYards.to_metric("")).to eql("Please enter a numerical value")
+      expect {ConvertYards.to_metric }.to raise_error(ArgumentError)
     end
     it "returns value in meters" do
       expect(ConvertYards.to_metric(32.43)).to eql(29.6540)
@@ -190,7 +190,7 @@ end
 RSpec.describe ConvertMiles do
   describe "to_inches" do
     it "return message if value is nil" do
-      expect(ConvertMiles.to_inches("")).to eql("Please enter a numerical value")
+      expect { ConvertMiles.to_inches }.to raise_error(ArgumentError)
     end
     it "returns value in inches" do
       expect(ConvertMiles.to_inches(0.3224)).to eql(20427.264)
@@ -205,7 +205,7 @@ RSpec.describe ConvertMiles do
 
   describe "to_feet" do
     it "return message if value is nil" do
-      expect(ConvertMiles.to_feet("")).to eql("Please enter a numerical value")
+      expect {ConvertMiles.to_feet }.to raise_error(ArgumentError)
     end
     it "returns value in feet" do
       expect(ConvertMiles.to_feet(0.35)).to eql(1848.0)
@@ -220,7 +220,7 @@ RSpec.describe ConvertMiles do
 
   describe "to_yards" do
     it "return message if value is nil" do
-      expect(ConvertMiles.to_yards("")).to eql("Please enter a numerical value")
+      expect {ConvertMiles.to_yards }.to raise_error(ArgumentError)
     end
     it "returns value in yards" do
       expect(ConvertMiles.to_yards(0.213)).to eql(374.88)
@@ -235,7 +235,7 @@ RSpec.describe ConvertMiles do
 
   describe "to_metric" do
     it "return message if value is nil" do
-      expect(ConvertMiles.to_metric("")).to eql("Please enter a numerical value")
+      expect {ConvertMiles.to_metric }.to raise_error(ArgumentError)
     end
     it "returns value in meters" do
       expect(ConvertMiles.to_metric(0.5)).to eql(804.672)
@@ -255,7 +255,7 @@ end
 RSpec.describe ConvertMeters do
   describe "to_inches" do
     it "return message if value is nil" do
-      expect(ConvertMeters.to_inches("")).to eql("Please enter a numerical value")
+      expect {ConvertMeters.to_inches }.to raise_error(ArgumentError)
     end
     it "returns value in inches" do
       expect(ConvertMeters.to_inches(2)).to eql(78.7402)
@@ -270,7 +270,7 @@ RSpec.describe ConvertMeters do
 
   describe "to_feet" do
     it "return message if value is nil" do
-      expect(ConvertMeters.to_feet("")).to eql("Please enter a numerical value")
+      expect {ConvertMeters.to_feet }.to raise_error(ArgumentError)
     end
     it "returns value in feet" do
       expect(ConvertMeters.to_feet(17)).to eql(55.7743)
@@ -285,7 +285,7 @@ RSpec.describe ConvertMeters do
 
    describe "to_miles" do
      it "return message if value is nil" do
-       expect(ConvertMeters.to_miles("")).to eql("Please enter a numerical value")
+       expect {ConvertMeters.to_miles }.to raise_error(ArgumentError)
      end
      it "return value in miles" do
        expect(ConvertMeters.to_miles(5982)).to eql(3.7170)
@@ -300,7 +300,7 @@ RSpec.describe ConvertMeters do
 
   describe "to_yards" do
     it "return message if value is nil" do
-      expect(ConvertMeters.to_yards("")).to eql("Please enter a numerical value")
+      expect { ConvertMeters.to_yards }.to raise_error(ArgumentError)
     end
     it "returns value in yards" do
       expect(ConvertMeters.to_yards(1337)).to eql(1462.1566)
@@ -310,6 +310,14 @@ RSpec.describe ConvertMeters do
     end
     it "returns value with adjusted decimal value" do
       expect(ConvertMeters.to_yards(7, 2)).to eql(7.66)
+    end
+  end
+  describe "to_metric" do
+    it "return message if value is nil" do
+      expect {ConvertMeters.to_metric }.to raise_error(ArgumentError)
+    end
+    it "return value in centimeters" do
+      expect(ConvertMeters.to_metric(2,"cm")).to eql(200.0)
     end
   end
 end

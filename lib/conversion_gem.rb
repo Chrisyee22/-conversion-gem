@@ -1,7 +1,7 @@
 module Base
   def self.precision(value, conversion_constant, decimal_value)
     if value.is_a? String
-      return "Please enter a numerical value"
+      raise ArgumentError.new
     else
       x = value.to_f
       y =  conversion_constant.to_f
@@ -144,6 +144,8 @@ class ConvertMeters
   end
 
   def self.to_metric(value, which_metric="m", decimal_value=4)
+    conversion_constant = 1.00
+    meters = Base.precision(value, conversion_constant, decimal_value)
     Base.metric_conversion(which_metric, meters)
   end
 end
